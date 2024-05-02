@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Nav.master.cs" Inherits="AoL.Masters.Nav" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>
+        Store
+    </title>
+    <style>
+        body {
+            font-family: Consolas, monospace;
+            margin: 1rem;
+        }
+        hr {
+            width: 100%;
+            margin-block: 2rem;
+        }
+        #form1 {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+        button, a, select, textarea, input[type=submit] {
+            all: unset;
+            font: inherit;
+        }
+        input[type=text], input[type=password], input[type=email], input[type=number], select, textarea {
+            all: unset;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid black;
+        }
+        button, input[type=submit] {
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid black;
+            text-align: center;
+        }
+        a {
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            text-decoration: underline;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav > div {
+            display: flex;
+            gap: 1rem;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            width: fit-content;
+            max-width: 60rem;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav>
+            <div ID="User" visible="False" runat="server">
+                <a href="Home.aspx">Home</a> <!-- Done -->
+                <a href="Order.aspx">Order Makeup</a>
+                <a href="History.aspx">History</a>
+            </div>
+            <div id="Admin" visible="False" runat="server">
+                <a href="Home.aspx">Home</a> <!-- Done -->
+                <a href="Manage.aspx">Manage Makeup</a>
+                <a href="Queue.aspx">Order Queue</a>
+                <a href="Report.aspx">Transaction Report</a>
+            </div>
+            <div id="All" visible="False" runat="server">
+                <a href="Profile.aspx">Profile</a> <!-- Done -->
+                <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" /> <!-- Done -->
+            </div>
+        </nav>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

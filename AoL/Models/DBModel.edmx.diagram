@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84c0acc872294570bc45d8d355d93e9f" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="AoL_DBModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AoL_DBModel.Cart" Width="1.5" PointX="8.875" PointY="1.375" />
+        <EntityTypeShape EntityType="AoL_DBModel.MakeupBrand" Width="1.5" PointX="11" PointY="6.375" />
+        <EntityTypeShape EntityType="AoL_DBModel.Makeup" Width="1.5" PointX="7.75" PointY="5.125" />
+        <EntityTypeShape EntityType="AoL_DBModel.MakeupType" Width="1.5" PointX="3.375" PointY="3.875" />
+        <EntityTypeShape EntityType="AoL_DBModel.TransactionDetail" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="AoL_DBModel.TransactionHeader" Width="1.5" PointX="2" PointY="7.625" />
+        <AssociationConnector Association="AoL_DBModel.FK_Carts_Makeups" />
+        <AssociationConnector Association="AoL_DBModel.FK_Carts_Users" />
+        <AssociationConnector Association="AoL_DBModel.FK_MakeupBrand" />
+        <AssociationConnector Association="AoL_DBModel.FK_MakeupType" />
+        <AssociationConnector Association="AoL_DBModel.FK_TransactionDetails_Makeup" />
+        <AssociationConnector Association="AoL_DBModel.FK_TransactionDetails_Transaction" />
+        <AssociationConnector Association="AoL_DBModel.FK_TransactionHeaders_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
