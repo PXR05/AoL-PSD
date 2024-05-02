@@ -4,7 +4,9 @@ using System;
 namespace AoL.Views {
     public partial class Register : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-
+            if (Session["User"] != null) {
+                Response.Redirect("~/Views/Home.aspx");
+            }
         }
 
         private readonly UserHandler _userHandler = new UserHandler();

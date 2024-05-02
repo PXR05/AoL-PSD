@@ -44,8 +44,11 @@ namespace AoL.Handlers {
                 return ("Please fill all fields!", null);
             }
             var user = _userRepo.GetUser(username, password);
+
             return user == null ? ("Invalid username or password!", null) : ("", user);
         }
+
+        public (string, User) CookieLogin()
 
         public (string, User) UpdateUser(int id, string username, string email, string gender, string dob) {
             var infoError = ValidateInfo(username, email, dob, gender);

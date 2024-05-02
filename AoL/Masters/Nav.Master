@@ -59,10 +59,28 @@
             max-width: 60rem;
             margin: auto;
         }
+        thead, tr, td, th {
+            padding: 0.5rem;
+            text-align: left;
+            border-left: 1px solid black;
+            &:last-child {
+                border-right: 1px solid black;
+            }
+        }
+        td {
+            border-bottom: 1px solid black;
+        }
+        thead {
+            border-block: 1px solid black;
+        }
+        table {
+            border-collapse: collapse;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Label ID="Debug" runat="server" Text=""></asp:Label>
         <nav>
             <div ID="User" visible="False" runat="server">
                 <a href="Home.aspx">Home</a> <!-- Done -->

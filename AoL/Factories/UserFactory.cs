@@ -8,8 +8,8 @@ namespace AoL.Factories {
         private readonly UserRepo _userRepo = new UserRepo();
 
         private int NewId() {
-            var maxId = _userRepo.GetAllUsers().Max(x => x.id);
-            return maxId + 1;
+            var maxId = _userRepo.GetAllUsers();
+            return maxId.Count == 0 ? 1 : maxId.Max(x => x.id) + 1;
         }
 
         public User CreateUser(string username, string email, string password, string gender, string dob) {
