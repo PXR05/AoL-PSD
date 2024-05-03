@@ -1,6 +1,7 @@
 ﻿using AoL.Models;
 using AoL.Repo;
 using System;
+using System.Web;
 
 namespace AoL.Masters {
     public partial class Nav : System.Web.UI.MasterPage {
@@ -14,10 +15,9 @@ namespace AoL.Masters {
 
         private void VerifyAuth() {
             var user = _userRepo.GetUser(Session["User"].ToString(), Session["Password"].ToString());
-            if (user == null) {
-                Session.Clear();
-                Response.Redirect("~/Views/Login.aspx");
-            }
+            if (user != null) { return; }
+            Session.Clear();
+            Response.Redirect("~/Views/Login.aspx");
         }
 
         protected void Page_Load(object sender, EventArgs e) {
@@ -34,8 +34,13 @@ namespace AoL.Masters {
                 } else {
                     return;
                 }
-            } else {
+            } else if (Session["Password"] != null) {
                 VerifyAuth();
+            }
+
+            if (HttpContext.Current.Request.Url.AbsolutePath == "/Views/Login.aspx" ||
+                HttpContext.Current.Request.Url.AbsolutePath == "/Views/Register.aspx") {
+                Response.Redirect("~/Views/Home.aspx");
             }
 
             All.Visible = true;
