@@ -4,7 +4,7 @@
     <script>
         function addToCart(id) {
             var qty = document.getElementById("qty-" + id).value
-            window.location.href = "?action=add&?id=" + id + "&q=" + (qty === "" ? "0" : qty);
+            window.location.href = "?/action=add&?id=" + id + "&q=" + (qty === "" ? "0" : qty);
         }
     </script>
     <h1>

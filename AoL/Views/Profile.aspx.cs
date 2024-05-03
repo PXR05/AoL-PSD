@@ -1,12 +1,10 @@
-﻿using AoL.Handlers;
-using AoL.Models;
+﻿using AoL.Controllers;
 using AoL.Repo;
 using System;
+using System.Web;
 
 namespace AoL.Views {
     public partial class Profile : System.Web.UI.Page {
-        private readonly UserHandler _userHandler = new UserHandler();
-        private readonly UserRepo _userRepo = new UserRepo();
 
         protected void Page_Load(object sender, EventArgs e) {
             if (Session["User"] == null) {
@@ -15,19 +13,25 @@ namespace AoL.Views {
 
             if (IsPostBack) return;
 
-            var user = _userRepo.GetUser(int.Parse(Session["Id"].ToString()));
+            var user = UserRepo.GetUser(int.Parse(Session["Id"].ToString()));
             if (user == null) {
                 Response.Redirect("~/Views/Login.aspx");
+                return;
             }
-            UpdateFields(user);
+            UpdateFields(user.id, user.username, user.email, user.dob.ToString("yyyy-MM-dd"), user.gender);
         }
 
-        private void UpdateFields(User user) {
-            UserId.Text = user.id.ToString();
-            Username.Text = user.username;
-            Email.Text = user.email;
-            DoB.Text = user.dob.ToString("yyyy-MM-dd");
-            Gender.Text = user.gender;
+        private void UpdateFields(int id, string username, string email, string dob, string gender) {
+            UserId.Text = id.ToString();
+            Username.Text = username;
+            Email.Text = email;
+            DoB.Text = dob;
+            Gender.Text = gender;
+        }
+
+        private void AddToCookie(string key, string value) {
+            var cookie = new HttpCookie(key, value);
+            Response.Cookies.Add(cookie);
         }
 
         protected void UpdateButton_OnClick(object sender, EventArgs e) {
@@ -37,17 +41,29 @@ namespace AoL.Views {
             var dob = DoB.Text;
             var gender = Gender.Text;
 
-            var (error, user) = _userHandler.UpdateUser(id, username, email, gender, dob);
+            var error = AuthController.UpdateUser(id, username, email, gender, dob);
             if (error != "") {
                 Error.Text = error;
                 return;
             }
 
-            if (user == null) { return; }
-
             Error.Text = "Profile updated!";
 
-            UpdateFields(user);
+            AddToCookie("Username", username);
+
+            UpdateFields(id, username, email, dob, gender);
+        }
+
+        protected void Change_OnClick(object sender, EventArgs e) {
+            var id = int.Parse(UserId.Text);
+            var oldPassword = OldPass.Text;
+            var newPassword = NewPass.Text;
+            var error = AuthController.UpdatePassword(id, oldPassword, newPassword);
+            if (error != "") {
+                PassError.Text = error;
+                return;
+            }
+            PassError.Text = "Password updated!";
         }
     }
 }

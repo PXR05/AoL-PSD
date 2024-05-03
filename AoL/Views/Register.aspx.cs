@@ -1,4 +1,4 @@
-﻿using AoL.Handlers;
+﻿using AoL.Controllers;
 using System;
 
 namespace AoL.Views {
@@ -9,8 +9,6 @@ namespace AoL.Views {
             }
         }
 
-        private readonly UserHandler _userHandler = new UserHandler();
-
         protected void RegButton_OnClick(object sender, EventArgs e) {
             var username = Username.Text;
             var email = Email.Text;
@@ -19,7 +17,7 @@ namespace AoL.Views {
             var dob = DoB.Text;
             var gender = Gender.Text;
 
-            var error = _userHandler.RegisterUser(username, email, password, confPassword, dob, gender);
+            var error = AuthController.RegisterUser(username, email, password, confPassword, dob, gender);
 
             if (error != "") {
                 Error.Text = error;

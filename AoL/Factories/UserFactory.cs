@@ -5,14 +5,13 @@ using System.Linq;
 
 namespace AoL.Factories {
     public class UserFactory {
-        private readonly UserRepo _userRepo = new UserRepo();
 
-        private int NewId() {
-            var maxId = _userRepo.GetAllUsers();
+        private static int NewId() {
+            var maxId = UserRepo.GetAllUsers();
             return maxId.Count == 0 ? 1 : maxId.Max(x => x.id) + 1;
         }
 
-        public User CreateUser(string username, string email, string password, string gender, string dob) {
+        public static User CreateUser(string username, string email, string password, string gender, string dob) {
             return new User {
                 id = NewId(),
                 username = username,

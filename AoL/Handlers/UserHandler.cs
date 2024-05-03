@@ -1,62 +1,51 @@
 ﻿using AoL.Factories;
 using AoL.Models;
 using AoL.Repo;
+using System;
+using System.Web;
 
 namespace AoL.Handlers {
-    public class UserHandler {
-        private static string ValidateInfo(string username, string email, string dob, string gender) {
-            return username == "" || email == "" || gender == "" || dob == ""
-                ? "All fields must be filled!"
-                : username.Length < 5
-                ? "Username must be at least 5 characters long!"
-                : username.Length > 15
-                ? "Username must be at most 15 characters long!"
-                : !email.EndsWith(".com") ? "Email must be a valid format!" : "";
-        }
+    public static class UserHandler {
 
-        private static string ValidatePassword(string password, string conf) {
-            return password == "" || conf == "" ? "All fields must be filled!" : password != conf ? "Passwords do not match!" : "";
-        }
-
-        private readonly UserFactory _userFactory = new UserFactory();
-        private readonly UserRepo _userRepo = new UserRepo();
-
-        public string RegisterUser(string username, string email, string password, string conf, string dob,
+        public static string RegisterUser(string username, string email, string password, string dob,
             string gender) {
 
-            var infoError = ValidateInfo(username, email, dob, gender);
-            if (infoError != "") {
-                return infoError;
+            var user = UserFactory.CreateUser(username, email, password, gender, dob);
+            try {
+                UserRepo.AddUser(user);
+            } catch (Exception e) {
+                return e.Message;
             }
-            var passwordError = ValidatePassword(password, conf);
-            if (passwordError != "") {
-                return passwordError;
-            }
-
-            var user = _userFactory.CreateUser(username, email, password, gender, dob);
-            _userRepo.AddUser(user);
 
             return "";
         }
 
-        public (string, User) LoginUser(string username, string password) {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password)) {
-                return ("Please fill all fields!", null);
-            }
-            var user = _userRepo.GetUser(username, password);
-
-            return user == null ? ("Invalid username or password!", null) : ("", user);
+        private static void SaveSession(User user) {
+            HttpContext.Current.Session["User"] = user.username;
+            HttpContext.Current.Session["Role"] = user.role;
+            HttpContext.Current.Session["Id"] = user.id;
         }
 
-        public (string, User) UpdateUser(int id, string username, string email, string gender, string dob) {
-            var infoError = ValidateInfo(username, email, dob, gender);
-            if (infoError != "") {
-                return (infoError, null);
-            }
+        public static string LoginUser(string username, string password) {
+            var user = UserRepo.GetUser(username, password);
 
-            var (updateError, user) = _userRepo.UpdateUser(id, username, email, gender, dob);
+            if (user == null) return "Invalid username or password!";
+            SaveSession(user);
+            return "";
+        }
 
-            return updateError != "" ? (updateError, null) : ("", user);
+        public static string UpdateUser(int id, string username, string email, string gender, string dob) {
+            var (updateError, user) = UserRepo.UpdateUser(id, username, email, gender, dob);
+            SaveSession(user);
+            return updateError;
+        }
+
+        public static string UpdatePassword(int id, string oldPass, string newPass) {
+            var user = UserRepo.GetUser(id);
+            if (user == null) return "User not found!";
+            if (oldPass != user.password) return "Incorrect password!";
+            UserRepo.UpdatePassword(id, newPass);
+            return "";
         }
     }
 }

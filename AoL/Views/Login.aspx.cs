@@ -1,5 +1,4 @@
-﻿using AoL.Handlers;
-using AoL.Models;
+﻿using AoL.Controllers;
 using System;
 using System.Web;
 
@@ -16,19 +15,11 @@ namespace AoL.Views {
             Response.Cookies.Add(cookie);
         }
 
-        private readonly UserHandler _userHandler = new UserHandler();
-
-        private void SaveSession(User user) {
-            Session["User"] = user.username;
-            Session["Role"] = user.role;
-            Session["Id"] = user.id;
-        }
-
         protected void LoginButton_Click(object sender, EventArgs e) {
             var username = Username.Text;
             var password = Password.Text;
 
-            var (error, user) = _userHandler.LoginUser(username, password);
+            var error = AuthController.LoginUser(username, password);
             if (error != "") {
                 Error.Text = error;
                 return;
@@ -38,8 +29,6 @@ namespace AoL.Views {
                 AddToCookie("Username", username);
                 AddToCookie("Password", password);
             }
-
-            SaveSession(user);
 
             Response.Redirect("~/Views/Home.aspx");
         }

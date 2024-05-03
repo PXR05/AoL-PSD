@@ -84,7 +84,7 @@
         <nav>
             <div ID="User" visible="False" runat="server">
                 <a href="Home.aspx">Home</a> <!-- Done -->
-                <a href="Order.aspx">Order Makeup</a>
+                <a href="Order.aspx">Order Makeup</a> <!-- Cart not implemented -->
                 <a href="History.aspx">History</a>
             </div>
             <div id="Admin" visible="False" runat="server">
