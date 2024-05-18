@@ -19,18 +19,42 @@ namespace AoL.Views {
 
             Makeups = MakeupRepo.GetAllMakeups();
             Carts = CartRepo.GetAllCarts();
+            Carts.Reverse();
 
             var action = Request.Params.Get("action");
-            if (action == "add") {
-                AddToCart();
+            switch (action) {
+                case "add":
+                    AddToCart();
+                    break;
+                case "clear":
+                    ClearCart();
+                    break;
+                case "checkout":
+                    Checkout();
+                    break;
             }
+        }
+
+        private void Checkout() {
+            // TODO: Implement checkout [create a new unhandled transaction]
+        }
+
+        private void ClearCart() {
+            var userId = int.Parse(Session["Id"].ToString());
+            var error = OrderController.ClearCart(userId);
+            if (error == "") {
+                Response.Redirect("~/Views/Order.aspx", true);
+            }
+            Error.Text = error;
         }
 
         private void AddToCart() {
             var id = int.Parse(Request.Params.Get("id") ?? "-1");
             var quantity = int.Parse(Request.Params.Get("q") ?? "0");
             var error = OrderController.AddToCart(int.Parse(Session["Id"].ToString()), id, quantity);
-            if (error == "") return;
+            if (error == "") {
+                Response.Redirect("~/Views/Order.aspx");
+            }
             Error.Text = error;
         }
     }

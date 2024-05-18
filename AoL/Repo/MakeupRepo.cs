@@ -7,9 +7,7 @@ namespace AoL.Repo {
         private static readonly AoL_DBEntities Db = Repo.Db.Instance;
 
         public static Makeup GetMakeup(int id) {
-            return (from m in Db.Makeups
-                    where m.id == id
-                    select m).FirstOrDefault();
+            return Db.Makeups.FirstOrDefault((m) => m.id.Equals(id));
         }
 
         public static List<Makeup> GetAllMakeups() {

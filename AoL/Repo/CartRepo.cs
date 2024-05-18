@@ -18,9 +18,16 @@ namespace AoL.Repo {
         }
 
         public static List<Cart> GetCartByUserId(int userId) {
-            return (from c in Db.Carts
-                    where c.userId == userId
-                    select c).ToList();
+            return Db.Carts.Where((c) => c.userId == userId).ToList();
+        }
+
+        public static void ClearCart(int userId) {
+            var carts = GetCartByUserId(userId);
+            foreach (var cart in carts) {
+                Db.Carts.Remove(cart);
+            }
+            System.Diagnostics.Debug.WriteLine("Carts cleared!");
+            Db.SaveChanges();
         }
 
         public static void AddCart(Cart cart) {

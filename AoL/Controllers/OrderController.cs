@@ -11,6 +11,11 @@ namespace AoL.Controllers {
             return MakeupRepo.GetMakeup(makeupId) == null ? "Makeup not found!" : "";
         }
 
+        public static string ClearCart(int userId) {
+            var error = ItemHandler.ClearCart(userId);
+            return error;
+        }
+
         public static string AddToCart(int userId, int makeupId, int quantity) {
             var qtyError = ValidateQuantity(quantity);
             if (qtyError != "") return qtyError;

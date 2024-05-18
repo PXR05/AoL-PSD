@@ -4,6 +4,14 @@ using System;
 
 namespace AoL.Handlers {
     public static class ItemHandler {
+        public static string ClearCart(int userId) {
+            try {
+                CartRepo.ClearCart(userId);
+            } catch (Exception e) {
+                return e.Message;
+            }
+            return "";
+        }
 
         public static string AddToCart(int userId, int makeupId, int qty) {
             var cart = CartFactory.CreateCart(userId, makeupId, qty);
