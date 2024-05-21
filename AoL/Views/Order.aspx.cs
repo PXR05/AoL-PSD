@@ -36,7 +36,12 @@ namespace AoL.Views {
         }
 
         private void Checkout() {
-            // TODO: Implement checkout [create a new unhandled transaction]
+            var userId = int.Parse(Session["Id"].ToString());
+            var error = OrderController.Checkout(userId, Carts);
+            if (error == "") {
+                Response.Redirect("~/Views/Order.aspx", true);
+            }
+            Error.Text = error;
         }
 
         private void ClearCart() {

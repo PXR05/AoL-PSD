@@ -1,4 +1,6 @@
-﻿using AoL.Handlers;
+﻿using System.Collections.Generic;
+using AoL.Handlers;
+using AoL.Models;
 using AoL.Repo;
 
 namespace AoL.Controllers {
@@ -13,6 +15,11 @@ namespace AoL.Controllers {
 
         public static string ClearCart(int userId) {
             var error = ItemHandler.ClearCart(userId);
+            return error;
+        }
+
+        public static string Checkout(int userId, List<Cart> cart) {
+            var error = ItemHandler.Checkout(userId, cart);
             return error;
         }
 

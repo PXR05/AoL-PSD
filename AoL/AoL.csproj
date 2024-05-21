@@ -100,6 +100,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Factories\CartFactory.cs" />
+    <Compile Include="Factories\TransactionFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\ItemHandler.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
@@ -150,6 +151,8 @@
     <Compile Include="Repo\CartRepo.cs" />
     <Compile Include="Repo\DB.cs" />
     <Compile Include="Repo\MakeupRepo.cs" />
+    <Compile Include="Repo\TransactionDetailRepo.cs" />
+    <Compile Include="Repo\TransactionHeaderRepo.cs" />
     <Compile Include="Repo\UserRepo.cs" />
     <Compile Include="Views\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

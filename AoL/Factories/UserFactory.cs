@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 
 namespace AoL.Factories {
-    public class UserFactory {
+    public static class UserFactory {
 
         private static int NewId() {
             var maxId = UserRepo.GetAllUsers();
