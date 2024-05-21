@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using AoL.Handlers;
+﻿using AoL.Handlers;
 using AoL.Models;
 using AoL.Repo;
+using System.Collections.Generic;
 
 namespace AoL.Controllers {
     public static class OrderController {
@@ -14,12 +14,12 @@ namespace AoL.Controllers {
         }
 
         public static string ClearCart(int userId) {
-            var error = ItemHandler.ClearCart(userId);
+            var error = OrderHandler.ClearCart(userId);
             return error;
         }
 
         public static string Checkout(int userId, List<Cart> cart) {
-            var error = ItemHandler.Checkout(userId, cart);
+            var error = OrderHandler.Checkout(userId, cart);
             return error;
         }
 
@@ -28,8 +28,12 @@ namespace AoL.Controllers {
             if (qtyError != "") return qtyError;
             var makeupError = ValidateMakeup(makeupId);
             if (makeupError != "") return makeupError;
-            var error = ItemHandler.AddToCart(userId, makeupId, quantity);
+            var error = OrderHandler.AddToCart(userId, makeupId, quantity);
             return error;
+        }
+
+        public static (TransactionHeader, TransactionDetail, string) GetTransaction(int id) {
+            return OrderHandler.GetTransaction(id);
         }
     }
 }

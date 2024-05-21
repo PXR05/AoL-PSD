@@ -91,14 +91,15 @@
         <nav>
             <div ID="User" visible="False" runat="server">
                 <a href="Home.aspx">Home</a> <!-- Done -->
-                <a href="Order.aspx">Order</a> <!-- Checkout not implemented -->
-                <a href="History.aspx">History</a> <!-- null -->
+                <a href="Order.aspx">Order</a> <!-- Done -->
+                <a href="History.aspx">History</a> <!-- Done -->
             </div>
             <div id="Admin" visible="False" runat="server">
                 <a href="Home.aspx">Home</a> <!-- Done -->
                 <a href="Manage.aspx">Manage</a> <!-- null -->
                 <a href="Queue.aspx">Queue</a> <!-- null -->
                 <a href="Report.aspx">Report</a> <!-- null -->
+                <a href="History.aspx">History</a> <!-- Done -->
             </div>
             <div id="All" visible="False" runat="server">
                 <a href="Profile.aspx">Profile</a> <!-- Done -->

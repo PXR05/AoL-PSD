@@ -89,6 +89,7 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\History.aspx" />
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Order.aspx" />
@@ -102,7 +103,7 @@
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\TransactionFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
-    <Compile Include="Handlers\ItemHandler.cs" />
+    <Compile Include="Handlers\OrderHandler.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Masters\Nav.Master.cs">
       <DependentUpon>Nav.Master</DependentUpon>
@@ -154,6 +155,13 @@
     <Compile Include="Repo\TransactionDetailRepo.cs" />
     <Compile Include="Repo\TransactionHeaderRepo.cs" />
     <Compile Include="Repo\UserRepo.cs" />
+    <Compile Include="Views\History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
