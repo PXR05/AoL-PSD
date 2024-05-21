@@ -45,6 +45,16 @@ namespace AoL.Handlers {
             return detail == null ? (null, null, "Transaction detail not found!") : ((TransactionHeader, TransactionDetail, string))(header, detail, "");
         }
 
+        public static string HandleTransaction(int id, string status) {
+            try {
+                TransactionHeaderRepo.UpdateTransactionHeader(id, status);
+            } catch (Exception e) {
+                return e.Message;
+            }
+
+            return "";
+        }
+
         public static string AddToCart(int userId, int makeupId, int qty) {
             var cart = CartFactory.CreateCart(userId, makeupId, qty);
             try {

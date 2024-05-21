@@ -89,6 +89,7 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Queue.aspx" />
     <Content Include="Views\History.aspx" />
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\Login.aspx" />
@@ -155,6 +156,13 @@
     <Compile Include="Repo\TransactionDetailRepo.cs" />
     <Compile Include="Repo\TransactionHeaderRepo.cs" />
     <Compile Include="Repo\UserRepo.cs" />
+    <Compile Include="Views\Queue.aspx.cs">
+      <DependentUpon>Queue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Queue.aspx.designer.cs">
+      <DependentUpon>Queue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

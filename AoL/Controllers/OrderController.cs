@@ -35,5 +35,9 @@ namespace AoL.Controllers {
         public static (TransactionHeader, TransactionDetail, string) GetTransaction(int id) {
             return OrderHandler.GetTransaction(id);
         }
+
+        public static string HandleTransaction(int id, string status) {
+            return OrderHandler.HandleTransaction(id, status);
+        }
     }
 }

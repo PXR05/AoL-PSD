@@ -15,7 +15,7 @@
     </h1>
     <hr />
     <main>
-        <% if (selectedHeader == null) { %>
+        <% if (SelectedHeader == null) { %>
         <table>
             <thead>
             <tr>
@@ -43,38 +43,38 @@
             </tbody>
         </table>
         <% }
-           else
+           else if (SelectedHeader != null && SelectedDetail != null)
            { %>
             <div>
                 <p>
                     <b>
                         Transaction ID:
                     </b>
-                    <%= selectedHeader.id%>
+                    <%= SelectedHeader.id%>
                 </p>
                 <p>
                     <b>
                         Item: 
                     </b>
-                    <%= selectedMakeup.name %>
+                    <%= SelectedDetail.Makeup.name %>
                 </p>
                 <p>
                     <b>
                         Quantity: 
                     </b>
-                    <%= selectedDetail.quantity %>
+                    <%= SelectedDetail.quantity %>
                 </p>
                 <p>
                     <b>
                         Date: 
                     </b>
-                    <%= selectedHeader.transactionDate %>
+                    <%= SelectedHeader.transactionDate %>
                 </p>
                 <p>
                     <b>
                         Status: 
                     </b>
-                    <%= selectedHeader.status %>
+                    <%= SelectedHeader.status %>
                 </p>
                 <br />
                 <a href="History.aspx">

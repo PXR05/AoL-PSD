@@ -83,23 +83,27 @@
         table {
             border-collapse: collapse;
         }
+        .pages > a:not(:first-child) {
+            border-left: 1px solid black;
+            padding-left: 1rem;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <asp:Label ID="Debug" runat="server" Text=""></asp:Label>
         <nav>
-            <div ID="User" visible="False" runat="server">
+            <div ID="User" class="pages" visible="False" runat="server">
                 <a href="Home.aspx">Home</a> <!-- Done -->
-                <a href="Order.aspx">Order</a> <!-- Done -->
-                <a href="History.aspx">History</a> <!-- Done -->
+                <a href="Order.aspx">Order Makeup</a> <!-- Done -->
+                <a href="History.aspx">Transaction History</a> <!-- Done -->
             </div>
-            <div id="Admin" visible="False" runat="server">
+            <div id="Admin" class="pages" visible="False" runat="server">
                 <a href="Home.aspx">Home</a> <!-- Done -->
-                <a href="Manage.aspx">Manage</a> <!-- null -->
-                <a href="Queue.aspx">Queue</a> <!-- null -->
-                <a href="Report.aspx">Report</a> <!-- null -->
-                <a href="History.aspx">History</a> <!-- Done -->
+                <a href="Manage.aspx">Manage Makeup</a> <!-- null -->
+                <a href="Queue.aspx">Transaction Queue</a> <!-- Done -->
+                <a href="Report.aspx">Transaction Report</a> <!-- null -->
+                <a href="History.aspx">Transaction History</a> <!-- Done -->
             </div>
             <div id="All" visible="False" runat="server">
                 <a href="Profile.aspx">Profile</a> <!-- Done -->

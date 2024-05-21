@@ -7,38 +7,45 @@ using System.Collections.Generic;
 namespace AoL.Views {
     public partial class History : System.Web.UI.Page {
         protected List<TransactionHeader> Transactions = new List<TransactionHeader>();
-        protected TransactionHeader selectedHeader = null;
-        protected TransactionDetail selectedDetail = null;
-        protected Makeup selectedMakeup = null;
+        protected TransactionHeader SelectedHeader = null;
+        protected TransactionDetail SelectedDetail = null;
 
         protected void Page_Load(object sender, EventArgs e) {
             if (Session["User"] == null) {
                 Response.Redirect("~/Views/Login.aspx");
             }
 
-            var userId = int.Parse(Session["Id"].ToString());
-            Transactions = TransactionHeaderRepo.GetUserTransactionHeaders(userId);
+            if (Session["Role"].ToString() != "user") {
+                // Admin can see all transactions
+                Transactions = TransactionHeaderRepo.GetAllTransactionHeaders();
+            } else {
+                var userId = int.Parse(Session["Id"].ToString());
+                Transactions = TransactionHeaderRepo.GetUserTransactionHeaders(userId);
+            }
 
-            var id = Request.Params.Get("id");
-            if (id == null) {
-                selectedHeader = null;
-                selectedDetail = null;
-                selectedMakeup = null;
+            var id = int.Parse(Request.Params.Get("id") ?? "-1");
+
+            if (id == -1) {
+                SelectedHeader = null;
+                SelectedDetail = null;
                 return;
             }
 
-            var error = "";
-            (selectedHeader, selectedDetail, error) = OrderController.GetTransaction(int.Parse(id));
+            string error;
+            (SelectedHeader, SelectedDetail, error) = OrderController.GetTransaction(id);
 
-            if (error != "") {
-                selectedHeader = null;
-                selectedDetail = null;
-                selectedMakeup = null;
-                Error.Text = error;
+            if (error == "") return;
+
+            if (SelectedHeader.userId != int.Parse(Session["Id"].ToString())) {
+                // User can only see their own transactions
+                SelectedHeader = null;
+                SelectedDetail = null;
                 return;
             }
 
-            selectedMakeup = selectedDetail.Makeup;
+            SelectedHeader = null;
+            SelectedDetail = null;
+            Error.Text = error;
         }
     }
 }
