@@ -19,9 +19,6 @@
             grid-template-columns: repeat(2, 1fr);
             column-gap: 2rem;
         }
-        hr {
-            margin-block: 1rem;
-        }
     </style>
     <h1>
         Order

@@ -15,7 +15,7 @@ namespace AoL.Views {
                 UserList.Visible = false;
             }
 
-            CurrUser.InnerHtml = Session["User"].ToString() + " | [" + Session["Role"].ToString() + "]";
+            CurrUser.InnerHtml = Session["User"] + " <br> <small style='font-size: 1rem; font-weight: 400'>Role: " + Session["Role"] + "</small>";
         }
     }
 }

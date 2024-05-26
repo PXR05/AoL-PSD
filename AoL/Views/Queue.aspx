@@ -6,7 +6,7 @@
     }
 </script>
     <style>
-    a {
+    main a {
         padding-inline: 0;
     }
 </style>
@@ -32,9 +32,11 @@
                         <td><%= t.transactionDate%></td>
                         <td><%= t.status%></td>
                         <td>
-                            <button type="button" onclick="handleTransaction(<%= t.id %>)">
-                                Handle
-                            </button>
+                            <% if (t.status == "unhandled") { %>
+                                <button type="button" onclick="handleTransaction(<%= t.id %>)">
+                                    Handle
+                                </button>
+                            <% } %>
                         </td>
                     </tr>
                 <% } %>

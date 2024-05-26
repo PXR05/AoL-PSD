@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace AoL.Views {
     public partial class History : System.Web.UI.Page {
+        protected bool isAdmin = false;
         protected List<TransactionHeader> Transactions = new List<TransactionHeader>();
         protected TransactionHeader SelectedHeader = null;
         protected TransactionDetail SelectedDetail = null;
@@ -17,6 +18,7 @@ namespace AoL.Views {
 
             if (Session["Role"].ToString() != "user") {
                 // Admin can see all transactions
+                isAdmin = true;
                 Transactions = TransactionHeaderRepo.GetAllTransactionHeaders();
             } else {
                 var userId = int.Parse(Session["Id"].ToString());

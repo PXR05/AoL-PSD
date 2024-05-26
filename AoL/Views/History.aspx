@@ -6,7 +6,7 @@
         }
     </script>
     <style>
-        a {
+        main a {
             padding-inline: 0;
         }
     </style>
@@ -20,6 +20,11 @@
             <thead>
             <tr>
                 <th>Id</th>
+                <% if (isAdmin) { %>
+                    <th>
+                        User Id
+                    </th>
+                <% } %>
                 <th>Date</th>
                 <th>Status</th>
                 <th></th>
@@ -30,6 +35,9 @@
                 <% foreach (var t in Transactions) { %>
                     <tr>
                         <td><%= t.id %></td>
+                        <% if (isAdmin) { %>
+                            <td><%= t.userId %></td>
+                        <% } %>
                         <td><%= t.transactionDate%></td>
                         <td><%= t.status%></td>
                         <td>
@@ -52,6 +60,14 @@
                     </b>
                     <%= SelectedHeader.id%>
                 </p>
+                <% if (isAdmin) { %>
+                    <p>
+                        <b>
+                            User ID:
+                        </b>
+                        <%= SelectedHeader.userId %>
+                    </p>
+                <% } %>
                 <p>
                     <b>
                         Item: 

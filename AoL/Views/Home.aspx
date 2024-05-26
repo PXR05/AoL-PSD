@@ -2,7 +2,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         tr, td, th {
-            border: 1px solid black;
             padding: 0.5rem;
         }
         main {
