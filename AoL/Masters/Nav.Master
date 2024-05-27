@@ -120,21 +120,13 @@
             position: fixed;
             bottom: 1rem;
             right: 1rem;
-            width: 1.5rem;
-            height: 1.5rem;
+            height: 2rem;
+            width: 2rem;
+            font-size: 1.5rem;
             padding: 0;
             border: none;
-            border-radius: 100%;
+            border-radius: 99999px;
             cursor: pointer;
-        }
-        .toggle::after {
-            content: "◯";
-            font-size: 2rem;
-            position: absolute;
-            inset: 0;
-            margin: auto;
-            width: fit-content;
-            height: fit-content;
         }
 
         .dark {
@@ -177,6 +169,7 @@
             </asp:ContentPlaceHolder>
         </div>
         <button class="toggle" type="button" onclick="toggleTheme()">
+            ◯
         </button>
     </form>
 </body>

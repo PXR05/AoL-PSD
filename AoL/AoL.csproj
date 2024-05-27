@@ -89,6 +89,10 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Add\Brand.aspx" />
+    <Content Include="Views\Add\Makeup.aspx" />
+    <Content Include="Views\Add\Type.aspx" />
+    <Content Include="Views\Manage.aspx" />
     <Content Include="Views\Queue.aspx" />
     <Content Include="Views\History.aspx" />
     <Content Include="Views\Home.aspx" />
@@ -96,6 +100,9 @@
     <Content Include="Views\Order.aspx" />
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
+    <Content Include="Views\Update\Brand.aspx" />
+    <Content Include="Views\Update\Makeup.aspx" />
+    <Content Include="Views\Update\Type.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -150,12 +157,42 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo\BrandRepo.cs" />
     <Compile Include="Repo\CartRepo.cs" />
     <Compile Include="Repo\DB.cs" />
     <Compile Include="Repo\MakeupRepo.cs" />
     <Compile Include="Repo\TransactionDetailRepo.cs" />
     <Compile Include="Repo\TransactionHeaderRepo.cs" />
+    <Compile Include="Repo\TypeRepo.cs" />
     <Compile Include="Repo\UserRepo.cs" />
+    <Compile Include="Views\Add\Brand.aspx.cs">
+      <DependentUpon>Brand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Add\Brand.aspx.designer.cs">
+      <DependentUpon>Brand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Add\Makeup.aspx.cs">
+      <DependentUpon>Makeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Add\Makeup.aspx.designer.cs">
+      <DependentUpon>Makeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Add\Type.aspx.cs">
+      <DependentUpon>Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Add\Type.aspx.designer.cs">
+      <DependentUpon>Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Queue.aspx.cs">
       <DependentUpon>Queue.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -204,6 +241,27 @@
     </Compile>
     <Compile Include="Views\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Update\Brand.aspx.cs">
+      <DependentUpon>Brand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Update\Brand.aspx.designer.cs">
+      <DependentUpon>Brand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Update\Makeup.aspx.cs">
+      <DependentUpon>Makeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Update\Makeup.aspx.designer.cs">
+      <DependentUpon>Makeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Update\Type.aspx.cs">
+      <DependentUpon>Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Update\Type.aspx.designer.cs">
+      <DependentUpon>Type.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
