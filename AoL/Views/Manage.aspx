@@ -81,6 +81,9 @@
                 <% } %>
                 </tbody>
             </table>
+            <br />
+            <asp:Label ID="MakeupError" runat="server" Text="&nbsp;"></asp:Label>
+            <br />
         </div>
         <div class="table-container">
             <div>
@@ -123,6 +126,9 @@
                 <% } %>
                 </tbody>
             </table>
+            <br />
+            <asp:Label ID="TypeError" runat="server" Text="&nbsp;"></asp:Label>
+            <br />
         </div>
         <div class="table-container">
             <div>
@@ -167,6 +173,9 @@
                 <% } %>
                 </tbody>
             </table>
+            <br />
+            <asp:Label ID="BrandError" runat="server" Text="&nbsp;"></asp:Label>
+            <br />
         </div>
     </main>
 </asp:Content>

@@ -1,4 +1,5 @@
-﻿using AoL.Models;
+﻿using AoL.Handlers;
+using AoL.Models;
 using AoL.Repo;
 using System;
 using System.Collections.Generic;
@@ -26,22 +27,30 @@ namespace AoL.Views {
 
             switch (item) {
                 case "makeup":
-                    deleteMakeup(id);
+                    DeleteMakeup(id);
                     break;
                 case "brand":
-                    deleteBrand(id);
+                    DeleteBrand(id);
                     break;
                 case "type":
-                    deleteType(id);
+                    DeleteType(id);
                     break;
             }
         }
 
-        private void deleteMakeup(int id) {
+        private void DeleteMakeup(int id) {
+            var error = MakeupHandler.DeleteMakeup(id);
+            if (error != "") {
+                MakeupError.Text = error;
+                return;
+            }
+
+            MakeupError.Text = "Makeup deleted successfully!";
+            Response.Redirect("~/Views/Manage.aspx");
         }
-        private void deleteBrand(int id) {
+        private void DeleteBrand(int id) {
         }
-        private void deleteType(int id) {
+        private void DeleteType(int id) {
         }
     }
 }

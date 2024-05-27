@@ -148,19 +148,19 @@
         <asp:Label ID="Debug" runat="server" Text=""></asp:Label>
         <nav>
             <div ID="User" class="pages" visible="False" runat="server">
-                <a href="Home.aspx">Home</a> <!-- Done -->
-                <a href="Order.aspx">Order Makeup</a> <!-- Done -->
-                <a href="History.aspx">Transaction History</a> <!-- Done -->
+                <a href="/Views/Home.aspx">Home</a> <!-- Done -->
+                <a href="/Views/Order.aspx">Order Makeup</a> <!-- Done -->
+                <a href="/Views/History.aspx">Transaction History</a> <!-- Done -->
             </div>
             <div id="Admin" class="pages" visible="False" runat="server">
-                <a href="Home.aspx">Home</a> <!-- Done -->
-                <a href="Manage.aspx">Manage Makeup</a> <!-- null -->
-                <a href="Queue.aspx">Transaction Queue</a> <!-- Done -->
-                <a href="Report.aspx">Transaction Report</a> <!-- null -->
-                <a href="History.aspx">Transaction History</a> <!-- Done -->
+                <a href="/Views/Home.aspx">Home</a> <!-- Done -->
+                <a href="/Views/Manage.aspx">Manage Makeup</a> <!-- null -->
+                <a href="/Views/Queue.aspx">Transaction Queue</a> <!-- Done -->
+                <a href="/Views/Report.aspx">Transaction Report</a> <!-- null -->
+                <a href="/Views/History.aspx">Transaction History</a> <!-- Done -->
             </div>
             <div id="All" visible="False" runat="server">
-                <a href="Profile.aspx">Profile</a> <!-- Done -->
+                <a href="/Views/Profile.aspx">Profile</a> <!-- Done -->
                 <asp:Button ID="Logout" runat="server" Text="Logout" OnClick="Logout_Click" /> <!-- Done -->
             </div>
         </nav>
