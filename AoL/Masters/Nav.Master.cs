@@ -49,13 +49,15 @@ namespace AoL.Masters {
 
         protected void Logout_Click(object sender, EventArgs e) {
             if (Request.Cookies["Username"] != null) {
-                HttpCookie usernameCookie = new HttpCookie("Username");
-                usernameCookie.Expires = DateTime.Now.AddDays(-7);
+                var usernameCookie = new HttpCookie("Username") {
+                    Expires = DateTime.Now.AddDays(-7)
+                };
                 Response.Cookies.Add(usernameCookie);
             }
             if (Request.Cookies["Password"] != null) {
-                HttpCookie passwordCookie = new HttpCookie("Password");
-                passwordCookie.Expires = DateTime.Now.AddDays(-7);
+                var passwordCookie = new HttpCookie("Password") {
+                    Expires = DateTime.Now.AddDays(-7)
+                };
                 Response.Cookies.Add(passwordCookie);
             }
 

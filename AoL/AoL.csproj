@@ -100,6 +100,7 @@
     <Content Include="Views\Order.aspx" />
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
+    <Content Include="Views\Report.aspx" />
     <Content Include="Views\Update\Brand.aspx" />
     <Content Include="Views\Update\Makeup.aspx" />
     <Content Include="Views\Update\Type.aspx" />
@@ -246,6 +247,13 @@
     </Compile>
     <Compile Include="Views\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Update\Brand.aspx.cs">
       <DependentUpon>Brand.aspx</DependentUpon>
