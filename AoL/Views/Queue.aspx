@@ -19,6 +19,7 @@
             <thead>
             <tr>
                 <th>Id</th>
+                <th>User Id</th>
                 <th>Date</th>
                 <th>Status</th>
                 <th></th>
@@ -29,6 +30,7 @@
                 <% foreach (var t in Transactions) { %>
                     <tr>
                         <td><%= t.id %></td>
+                        <td><%= t.userId %></td>
                         <td><%= t.transactionDate%></td>
                         <td><%= t.status%></td>
                         <td>

@@ -15,9 +15,6 @@
         main a {
             padding-inline: 0;
         }
-        h2 {
-            margin-bottom: 0.75rem;
-        }
         .table-container > div {
             display: flex;
             justify-content: space-between;

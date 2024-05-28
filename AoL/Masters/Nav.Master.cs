@@ -9,21 +9,26 @@ namespace AoL.Masters {
                 return;
             }
 
-            var error = "";
-            if (Session["User"] == null) {
-                error = AuthController.LoginUser(Response.Cookies["Username"]?.Value, Response.Cookies["Password"]?.Value);
-            } else if (Session["Password"] != null) {
-                error = AuthController.LoginUser(Session["User"].ToString(), Session["Password"].ToString());
-            }
+            var isInAuthPage = HttpContext.Current.Request.Url.AbsolutePath == "/Views/Login.aspx" || HttpContext.Current.Request.Url.AbsolutePath == "/Views/Register.aspx";
 
-            if (error != "") {
-                Session.Abandon();
+            var sessionIsEmpty = Session["User"] == null || Session["Id"] == null;
+
+            var cookieUsername = Request.Cookies["Username"]?.Value;
+            var cookiePassword = Request.Cookies["Password"]?.Value;
+            var cookieIsEmpty = cookieUsername == null || cookiePassword == null;
+
+            if (sessionIsEmpty && cookieIsEmpty) {
+                if (!isInAuthPage) {
+                    Response.Redirect("~/Views/Login.aspx");
+                }
                 return;
             }
 
-            if (HttpContext.Current.Request.Url.AbsolutePath == "/Views/Login.aspx" ||
-                HttpContext.Current.Request.Url.AbsolutePath == "/Views/Register.aspx") {
-                Response.Redirect("~/Views/Home.aspx");
+            var error = sessionIsEmpty
+                ? AuthController.LoginUser(cookieUsername, cookiePassword)
+                : AuthController.SessionLogin(Session["Id"].ToString());
+            if (error != "") {
+                return;
             }
 
             All.Visible = true;
@@ -36,16 +41,21 @@ namespace AoL.Masters {
                     User.Visible = true;
                     break;
             }
+
+            if (isInAuthPage) {
+                Response.Redirect("~/Views/Home.aspx");
+            }
         }
 
         protected void Logout_Click(object sender, EventArgs e) {
             if (Request.Cookies["Username"] != null) {
-                Request.Cookies["Username"].Expires = DateTime.Now.AddDays(-1);
+                Request.Cookies["Username"].Expires = DateTime.Now.AddDays(-7);
             }
             if (Request.Cookies["Password"] != null) {
-                Request.Cookies["Password"].Expires = DateTime.Now.AddDays(-1);
+                Request.Cookies["Password"].Expires = DateTime.Now.AddDays(-7);
             }
             Session.Clear();
+            Session.Abandon();
             Response.Redirect("~/Views/Login.aspx");
         }
     }

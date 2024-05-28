@@ -11,7 +11,9 @@ namespace AoL.Views {
         }
 
         private void AddToCookie(string key, string value) {
-            var cookie = new HttpCookie(key, value);
+            var cookie = new HttpCookie(key, value) {
+                Expires = DateTime.Now.AddDays(7)
+            };
             Response.Cookies.Add(cookie);
         }
 

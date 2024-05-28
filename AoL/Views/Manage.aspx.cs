@@ -1,4 +1,4 @@
-﻿using AoL.Handlers;
+﻿using AoL.Controllers;
 using AoL.Models;
 using AoL.Repo;
 using System;
@@ -39,18 +39,31 @@ namespace AoL.Views {
         }
 
         private void DeleteMakeup(int id) {
-            var error = MakeupHandler.DeleteMakeup(id);
+            var error = MakeupController.DeleteMakeup(id);
             if (error != "") {
                 MakeupError.Text = error;
                 return;
             }
 
-            MakeupError.Text = "Makeup deleted successfully!";
             Response.Redirect("~/Views/Manage.aspx");
         }
         private void DeleteBrand(int id) {
+            var error = MakeupController.DeleteBrand(id);
+            if (error != "") {
+                BrandError.Text = error;
+                return;
+            }
+
+            Response.Redirect("~/Views/Manage.aspx");
         }
         private void DeleteType(int id) {
+            var error = MakeupController.DeleteType(id);
+            if (error != "") {
+                TypeError.Text = error;
+                return;
+            }
+
+            Response.Redirect("~/Views/Manage.aspx");
         }
     }
 }

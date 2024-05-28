@@ -32,7 +32,12 @@ namespace AoL.Controllers {
             if (infoError != "") return infoError;
             var passwordError = ValidatePassword(password, confPassword);
             if (passwordError != "") return passwordError;
-            var error = UserHandler.RegisterUser(username, email, password, dob, gender);
+            var error = AuthHandler.RegisterUser(username, email, password, dob, gender);
+            return error;
+        }
+
+        public static string SessionLogin(string id) {
+            var error = AuthHandler.SessionLogin(id);
             return error;
         }
 
@@ -41,14 +46,14 @@ namespace AoL.Controllers {
             if (usernameError != "") return usernameError;
             var passwordError = ValidatePassword(password);
             if (passwordError != "") return passwordError;
-            var error = UserHandler.LoginUser(username, password);
+            var error = AuthHandler.LoginUser(username, password);
             return error;
         }
 
         public static string UpdateUser(int id, string username, string email, string gender, string dob) {
             var infoError = ValidateInfo(username, email, dob, gender);
             if (infoError != "") return infoError;
-            var error = UserHandler.UpdateUser(id, username, email, gender, dob);
+            var error = AuthHandler.UpdateUser(id, username, email, gender, dob);
             return error;
         }
 
@@ -57,7 +62,7 @@ namespace AoL.Controllers {
             if (oldPassError != "") return oldPassError;
             var newPassError = ValidatePassword(newPass);
             if (newPassError != "") return newPassError;
-            var error = UserHandler.UpdatePassword(id, oldPass, newPass);
+            var error = AuthHandler.UpdatePassword(id, oldPass, newPass);
             return error;
         }
     }

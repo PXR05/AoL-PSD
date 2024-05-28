@@ -20,7 +20,7 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <% if (isAdmin) { %>
+                <% if (IsAdmin) { %>
                     <th>
                         User Id
                     </th>
@@ -35,7 +35,7 @@
                 <% foreach (var t in Transactions) { %>
                     <tr>
                         <td><%= t.id %></td>
-                        <% if (isAdmin) { %>
+                        <% if (IsAdmin) { %>
                             <td><%= t.userId %></td>
                         <% } %>
                         <td><%= t.transactionDate%></td>
@@ -60,7 +60,7 @@
                     </b>
                     <%= SelectedHeader.id%>
                 </p>
-                <% if (isAdmin) { %>
+                <% if (IsAdmin) { %>
                     <p>
                         <b>
                             User ID:

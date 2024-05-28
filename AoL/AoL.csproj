@@ -109,13 +109,15 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\MakeupController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Factories\BrandFactory.cs" />
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\MakeupFactory.cs" />
     <Compile Include="Factories\TransactionFactory.cs" />
+    <Compile Include="Factories\TypeFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\MakeupHandler.cs" />
     <Compile Include="Handlers\OrderHandler.cs" />
-    <Compile Include="Handlers\UserHandler.cs" />
+    <Compile Include="Handlers\AuthHandler.cs" />
     <Compile Include="Masters\Nav.Master.cs">
       <DependentUpon>Nav.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

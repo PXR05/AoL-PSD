@@ -24,11 +24,13 @@
             gap: 0.5rem;
        }
     </style>
+    <h1>
+        Profile
+    </h1>
+    <hr />
     <main>
         <div>
-            <h1>
-                Profile
-            </h1>
+            <h2>Information</h2>
             <hr />
             <div class="form">
 
@@ -56,9 +58,9 @@
             </div>
         </div>
         <div>
-            <h1>
-                Change Password
-            </h1>
+            <h2>
+                Password
+            </h2>
             <hr />
             <div class="form">
                 <asp:TextBox ID="TextBox1" Visible="False" runat="server"></asp:TextBox>
