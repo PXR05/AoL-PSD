@@ -13,7 +13,7 @@ namespace AoL.Views {
                 Response.Redirect("~/Views/Login.aspx");
             }
 
-            Transactions = TransactionHeaderRepo.GetAllTransactionHeaders();
+            Transactions = TransactionHeaderController.GetAllTransactionHeaders();
 
             var id = int.Parse(Request.Params.Get("id") ?? "-1");
             if (id == -1) {

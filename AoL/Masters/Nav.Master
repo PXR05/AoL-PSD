@@ -159,7 +159,7 @@
                 <a href="/Views/Home.aspx">Home</a> <!-- Done -->
                 <a href="/Views/Manage.aspx">Manage Makeup</a> <!-- Done -->
                 <a href="/Views/Queue.aspx">Transaction Queue</a> <!-- Done -->
-                <a href="/Views/Report.aspx">Transaction Report</a> <!-- null -->
+                <a href="/Views/Report.aspx">Transaction Report</a> <!-- Done -->
                 <a href="/Views/History.aspx">Transaction History</a> <!-- Done -->
             </div>
             <div id="All" visible="False" runat="server">

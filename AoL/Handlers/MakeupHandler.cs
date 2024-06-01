@@ -1,6 +1,8 @@
 ﻿using AoL.Factories;
+using AoL.Models;
 using AoL.Repo;
 using System;
+using System.Collections.Generic;
 
 namespace AoL.Handlers {
     public static class MakeupHandler {
@@ -13,6 +15,16 @@ namespace AoL.Handlers {
             }
 
             return "";
+        }
+
+        public static List<Makeup> GetAllMakeups()
+        {
+            return MakeupRepo.GetAllMakeups();
+        }
+
+        public static Makeup GetMakeup(int id)
+        {
+            return MakeupRepo.GetMakeup(id);
         }
 
         public static string AddType(string name) {

@@ -1,4 +1,5 @@
-﻿using AoL.Repo;
+﻿using AoL.Controllers;
+using AoL.Repo;
 using System;
 
 namespace AoL.Views {
@@ -9,7 +10,7 @@ namespace AoL.Views {
             }
 
             if (Session["Role"].ToString() == "admin") {
-                UserList.DataSource = UserRepo.GetAllUsers();
+                UserList.DataSource = UserController.GetAllUsers();
                 UserList.DataBind();
             } else {
                 UserList.Visible = false;

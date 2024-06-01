@@ -18,7 +18,7 @@ namespace AoL.Views.Update {
                 Response.Redirect("~/Views/Manage.aspx");
             }
 
-            var type = TypeRepo.GetType(id);
+            var type = TypeController.GetType(id);
             if (type == null) {
                 Response.Redirect("~/Views/Manage.aspx");
                 return;

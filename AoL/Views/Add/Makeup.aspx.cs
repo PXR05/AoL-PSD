@@ -9,11 +9,11 @@ namespace AoL.Views.Add {
                 Response.Redirect("~/Views/Login.aspx");
             }
 
-            TypeList.DataSource = TypeRepo.GetAllMakeupTypes();
+            TypeList.DataSource = TypeController.GetAllMakeupTypes();
             TypeList.DataTextField = "name";
             TypeList.DataValueField = "id";
             TypeList.DataBind();
-            BrandList.DataSource = BrandRepo.GetAllMakeupBrands();
+            BrandList.DataSource = BrandController.GetAllMakeupBrands();
             BrandList.DataTextField = "name";
             BrandList.DataValueField = "id";
             BrandList.DataBind();

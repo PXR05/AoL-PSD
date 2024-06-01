@@ -19,10 +19,10 @@ namespace AoL.Views {
             if (Session["Role"].ToString() != "user") {
                 // Admin can see all transactions
                 IsAdmin = true;
-                Transactions = TransactionHeaderRepo.GetAllTransactionHeaders();
+                Transactions = TransactionHeaderController.GetAllTransactionHeaders();
             } else {
                 var userId = int.Parse(Session["Id"].ToString());
-                Transactions = TransactionHeaderRepo.GetUserTransactionHeaders(userId);
+                Transactions = TransactionHeaderController.GetUserTransactionHeaders(userId);
             }
 
             var id = int.Parse(Request.Params.Get("id") ?? "-1");

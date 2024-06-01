@@ -18,7 +18,7 @@ namespace AoL.Views.Update {
                 Response.Redirect("~/Views/Manage.aspx");
             }
 
-            var brand = BrandRepo.GetBrand(id);
+            var brand = BrandController.GetBrand(id);
             if (brand == null) {
                 Response.Redirect("~/Views/Manage.aspx");
                 return;

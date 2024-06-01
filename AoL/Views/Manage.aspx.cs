@@ -15,9 +15,9 @@ namespace AoL.Views {
                 Response.Redirect("~/Views/Login.aspx");
             }
 
-            Makeups = MakeupRepo.GetAllMakeups();
-            Brands = BrandRepo.GetAllMakeupBrands();
-            Types = TypeRepo.GetAllMakeupTypes();
+            Makeups = MakeupController.GetAllMakeups();
+            Brands = BrandController.GetAllMakeupBrands();
+            Types = TypeController.GetAllMakeupTypes();
 
             var action = Request.Params.Get("action");
             var item = Request.Params.Get("item");

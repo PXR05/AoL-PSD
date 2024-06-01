@@ -18,7 +18,7 @@ namespace AoL.Views.Update {
                 Response.Redirect("~/Views/Manage.aspx");
             }
 
-            var makeup = MakeupRepo.GetMakeup(id);
+            var makeup = MakeupController.GetMakeup(id);
             if (makeup == null) {
                 Response.Redirect("~/Views/Manage.aspx");
                 return;
@@ -28,13 +28,13 @@ namespace AoL.Views.Update {
             Price.Text = makeup.price.ToString();
             Weight.Text = makeup.weight.ToString();
 
-            TypeList.DataSource = TypeRepo.GetAllMakeupTypes();
+            TypeList.DataSource = TypeController.GetAllMakeupTypes();
             TypeList.DataTextField = "name";
             TypeList.DataValueField = "id";
             TypeList.DataBind();
             TypeList.SelectedValue = makeup.typeId.ToString();
             TypeList.DataBind();
-            BrandList.DataSource = BrandRepo.GetAllMakeupBrands();
+            BrandList.DataSource = BrandController.GetAllMakeupBrands();
             BrandList.DataTextField = "name";
             BrandList.DataValueField = "id";
             BrandList.DataBind();

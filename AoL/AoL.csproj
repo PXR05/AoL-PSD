@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -108,17 +112,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\Brand Controller.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\MakeupController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\TransactionDetailController.cs" />
+    <Compile Include="Controllers\TransactionHeaderController.cs" />
+    <Compile Include="Controllers\TypeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DataSet\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Factories\BrandFactory.cs" />
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\MakeupFactory.cs" />
     <Compile Include="Factories\TransactionFactory.cs" />
     <Compile Include="Factories\TypeFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
+    <Compile Include="Handlers\BrandHandler.cs" />
+    <Compile Include="Handlers\CartHandler.cs" />
     <Compile Include="Handlers\MakeupHandler.cs" />
     <Compile Include="Handlers\OrderHandler.cs" />
     <Compile Include="Handlers\AuthHandler.cs" />
+    <Compile Include="Handlers\TransactionDetailhandler.cs" />
+    <Compile Include="Handlers\TransactionHeaderhandler.cs" />
+    <Compile Include="Handlers\TypeHandler.cs" />
+    <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Masters\Nav.Master.cs">
       <DependentUpon>Nav.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,6 +184,12 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportt\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Repo\BrandRepo.cs" />
     <Compile Include="Repo\CartRepo.cs" />
     <Compile Include="Repo\DB.cs" />
@@ -286,6 +313,17 @@
     <Content Include="Models\DBModel.edmx.diagram">
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Content>
+    <Content Include="DataSet\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -294,9 +332,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportt\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

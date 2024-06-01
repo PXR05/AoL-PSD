@@ -13,7 +13,7 @@ namespace AoL.Views {
 
             if (IsPostBack) return;
 
-            var user = UserRepo.GetUser(int.Parse(Session["Id"].ToString()));
+            var user = UserController.GetUser(int.Parse(Session["Id"].ToString()));
             if (user == null) {
                 Response.Redirect("~/Views/Login.aspx");
                 return;

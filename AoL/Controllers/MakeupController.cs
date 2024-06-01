@@ -1,10 +1,21 @@
 ﻿using AoL.Handlers;
+using AoL.Models;
 using AoL.Repo;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace AoL.Controllers {
     public static class MakeupController {
+
+        public static List<Makeup> GetAllMakeups()
+        {
+            return MakeupHandler.GetAllMakeups();
+        }
+
+        public static Makeup GetMakeup(int id)
+        {
+            return MakeupHandler.GetMakeup(id);
+        }
         private static string ValidateName(string name) {
             return name.Length < 1 || name.Length > 99 ? "Name must be between 1-99 characters." : "";
         }

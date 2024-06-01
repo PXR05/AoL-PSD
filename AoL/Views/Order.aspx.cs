@@ -17,8 +17,8 @@ namespace AoL.Views {
                 Response.Redirect("~/Views/Home.aspx");
             }
 
-            Makeups = MakeupRepo.GetAllMakeups();
-            Carts = CartRepo.GetAllCarts();
+            Makeups = MakeupController.GetAllMakeups();
+            Carts = CartController.GetAllCarts();
             Carts.Reverse();
 
             var action = Request.Params.Get("action");
