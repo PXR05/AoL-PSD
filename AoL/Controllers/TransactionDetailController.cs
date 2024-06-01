@@ -11,7 +11,7 @@ namespace AoL.Controllers
     {
         public static List<TransactionDetail> GetAllTransactionDetails()
         {
-            return TransactionDetailhandler.GetAllTransactionDetails();
+            return TransactionDetailHandler.GetAllTransactionDetails();
         }
     }
 }

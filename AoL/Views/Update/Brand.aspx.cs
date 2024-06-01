@@ -1,5 +1,4 @@
 ﻿using AoL.Controllers;
-using AoL.Repo;
 using System;
 
 namespace AoL.Views.Update {
@@ -19,6 +18,7 @@ namespace AoL.Views.Update {
             }
 
             var brand = BrandController.GetBrand(id);
+
             if (brand == null) {
                 Response.Redirect("~/Views/Manage.aspx");
                 return;

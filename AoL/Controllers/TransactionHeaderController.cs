@@ -11,11 +11,11 @@ namespace AoL.Controllers
     {
         public static List<TransactionHeader> GetAllTransactionHeaders()
         {
-            return TransactionHeaderhandler.GetAllTransactionHeaders();
+            return TransactionHeaderHandler.GetAllTransactionHeaders();
         }
         public static List<TransactionHeader> GetUserTransactionHeaders(int userId)
         {
-            return TransactionHeaderhandler.GetUserTransactionHeaders(userId);
+            return TransactionHeaderHandler.GetUserTransactionHeaders(userId);
         }
     }
 }
