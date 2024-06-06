@@ -12,7 +12,7 @@ namespace AoL.Factories {
         public static MakeupBrand CreateBrand(string name, int rating) {
             return new MakeupBrand {
                 id = NewId(),
-                name = name,
+                name = name, 
                 rating = rating
             };
         }

@@ -1,1 +1,3 @@
 # AoL
+
+Adam ga kerja
