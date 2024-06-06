@@ -1,6 +1,5 @@
 ﻿using AoL.Controllers;
 using AoL.Models;
-using AoL.Repo;
 using System;
 using System.Collections.Generic;
 
@@ -18,6 +17,7 @@ namespace AoL.Views {
             }
 
             Makeups = MakeupController.GetAllMakeups();
+            Makeups.Sort((b, a) => a.MakeupBrand.rating - b.MakeupBrand.rating);
             Carts = CartController.GetAllCarts();
             Carts.Reverse();
 
