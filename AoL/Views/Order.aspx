@@ -83,7 +83,7 @@
                             <span>
                                 <p>[ <%= item.Makeup.id %> ] <%= item.Makeup.name %></p>
                                 <p><%= item.Makeup.MakeupBrand.name %> | <%= item.Makeup.MakeupType.name %></p>
-                                <p><%= item.Makeup.weight %> kg</p>
+                                <p><%= item.Makeup.weight %> g</p>
                             </span>
                             <p><%= item.quantity %> x <%= item.Makeup.price.ToString("C") %></p>
                             <hr />
