@@ -1,6 +1,5 @@
 ﻿using AoL.Controllers;
 using AoL.Models;
-using AoL.Repo;
 using System;
 using System.Collections.Generic;
 
@@ -9,7 +8,7 @@ namespace AoL.Views {
         protected bool IsAdmin = false;
         protected List<TransactionHeader> Transactions = new List<TransactionHeader>();
         protected TransactionHeader SelectedHeader = null;
-        protected TransactionDetail SelectedDetail = null;
+        protected List<TransactionDetail> SelectedDetail = null;
 
         protected void Page_Load(object sender, EventArgs e) {
             if (Session["User"] == null) {

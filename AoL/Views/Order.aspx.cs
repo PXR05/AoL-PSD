@@ -39,7 +39,7 @@ namespace AoL.Views {
             var userId = int.Parse(Session["Id"].ToString());
             var error = OrderController.Checkout(userId, Carts);
             if (error == "") {
-                Response.Redirect("~/Views/Order.aspx", true);
+                ClearCart();
             }
             Error.Text = error;
         }

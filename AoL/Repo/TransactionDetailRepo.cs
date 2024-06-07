@@ -4,8 +4,9 @@ using System.Linq;
 
 namespace AoL.Repo {
     public static class TransactionDetailRepo {
-        public static TransactionDetail GetTransactionDetail(int id) {
-            return Db.Instance.TransactionDetails.FirstOrDefault((t) => t.transactionId.Equals(id));
+
+        public static List<TransactionDetail> GetTransactionDetails(int id) {
+            return Db.Instance.TransactionDetails.Where((t) => t.transactionId.Equals(id)).ToList();
         }
 
         public static List<TransactionDetail> GetAllTransactionDetails() {
@@ -13,8 +14,10 @@ namespace AoL.Repo {
                     select t).ToList();
         }
 
-        public static void AddTransactionDetail(TransactionDetail transactionDetail) {
-            Db.Instance.TransactionDetails.Add(transactionDetail);
+        public static void AddTransactionDetails(List<TransactionDetail> transactionDetails) {
+            foreach (var detail in transactionDetails) {
+                Db.Instance.TransactionDetails.Add(detail);
+            }
             Db.Instance.SaveChanges();
         }
     }

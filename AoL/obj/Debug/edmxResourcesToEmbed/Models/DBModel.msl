@@ -1,74 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="AoL_DBModelStoreContainer" CdmEntityContainer="AoL_DBEntities">
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="AoL_DBModel.User">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="gender" ColumnName="gender" />
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="dob" ColumnName="dob" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="role" ColumnName="role" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="AoL_DBModelStoreContainer" CdmEntityContainer="AoL_DBEntities1">
     <EntitySetMapping Name="Carts">
       <EntityTypeMapping TypeName="AoL_DBModel.Cart">
         <MappingFragment StoreEntitySet="Carts">
-          <ScalarProperty Name="quantity" ColumnName="quantity" />
-          <ScalarProperty Name="makeupId" ColumnName="makeupId" />
-          <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="makeupId" ColumnName="makeupId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MakeupBrands">
       <EntityTypeMapping TypeName="AoL_DBModel.MakeupBrand">
         <MappingFragment StoreEntitySet="MakeupBrands">
-          <ScalarProperty Name="rating" ColumnName="rating" />
-          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Makeups">
       <EntityTypeMapping TypeName="AoL_DBModel.Makeup">
         <MappingFragment StoreEntitySet="Makeups">
-          <ScalarProperty Name="brandId" ColumnName="brandId" />
-          <ScalarProperty Name="typeId" ColumnName="typeId" />
-          <ScalarProperty Name="weight" ColumnName="weight" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="typeId" ColumnName="typeId" />
+          <ScalarProperty Name="brandId" ColumnName="brandId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MakeupTypes">
       <EntityTypeMapping TypeName="AoL_DBModel.MakeupType">
         <MappingFragment StoreEntitySet="MakeupTypes">
-          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TransactionDetails">
       <EntityTypeMapping TypeName="AoL_DBModel.TransactionDetail">
         <MappingFragment StoreEntitySet="TransactionDetails">
-          <ScalarProperty Name="quantity" ColumnName="quantity" />
-          <ScalarProperty Name="makeupId" ColumnName="makeupId" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+          <ScalarProperty Name="makeupId" ColumnName="makeupId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TransactionHeaders">
       <EntityTypeMapping TypeName="AoL_DBModel.TransactionHeader">
         <MappingFragment StoreEntitySet="TransactionHeaders">
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
-          <ScalarProperty Name="userId" ColumnName="userId" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AoL_DBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

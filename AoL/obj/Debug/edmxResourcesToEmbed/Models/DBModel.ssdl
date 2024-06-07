@@ -37,8 +37,9 @@
   </EntityType>
   <EntityType Name="TransactionDetails">
     <Key>
-      <PropertyRef Name="transactionId" />
+      <PropertyRef Name="id" />
     </Key>
+    <Property Name="id" Type="int" Nullable="false" />
     <Property Name="transactionId" Type="int" Nullable="false" />
     <Property Name="makeupId" Type="int" Nullable="false" />
     <Property Name="quantity" Type="int" Nullable="false" />
@@ -126,7 +127,7 @@
   </Association>
   <Association Name="FK_TransactionDetails_Transaction">
     <End Role="TransactionHeaders" Type="Self.TransactionHeaders" Multiplicity="1" />
-    <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="0..1" />
+    <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TransactionHeaders">
         <PropertyRef Name="id" />

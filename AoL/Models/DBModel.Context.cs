@@ -13,10 +13,10 @@ namespace AoL.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AoL_DBEntities : DbContext
+    public partial class AoL_DBEntities1 : DbContext
     {
-        public AoL_DBEntities()
-            : base("name=AoL_DBEntities")
+        public AoL_DBEntities1()
+            : base("name=AoL_DBEntities1")
         {
         }
     
@@ -25,12 +25,12 @@ namespace AoL.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<MakeupBrand> MakeupBrands { get; set; }
         public virtual DbSet<Makeup> Makeups { get; set; }
         public virtual DbSet<MakeupType> MakeupTypes { get; set; }
         public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
         public virtual DbSet<TransactionHeader> TransactionHeaders { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

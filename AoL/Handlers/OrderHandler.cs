@@ -16,33 +16,26 @@ namespace AoL.Handlers {
         }
 
         public static string Checkout(int userId, List<Cart> cart) {
-            foreach (var item in cart) {
-                var makeup = MakeupRepo.GetMakeup(item.makeupId);
-                if (makeup == null) {
-                    return "Makeup not found!";
-                }
+            var (header, details) = TransactionFactory.CreateTransaction(userId, cart, "unhandled");
 
-                var (header, details) = TransactionFactory.CreateTransaction(userId, item, "unhandled");
-
-                try {
-                    TransactionHeaderRepo.AddTransactionHeader(header);
-                    TransactionDetailRepo.AddTransactionDetail(details);
-                } catch (Exception e) {
-                    return e.Message;
-                }
+            try {
+                TransactionHeaderRepo.AddTransactionHeader(header);
+                TransactionDetailRepo.AddTransactionDetails(details);
+            } catch (Exception e) {
+                return e.Message + e.StackTrace;
             }
 
-            return ClearCart(userId);
+            return "";
         }
 
-        public static (TransactionHeader, TransactionDetail, string) GetTransaction(int id) {
+        public static (TransactionHeader, List<TransactionDetail>, string) GetTransaction(int id) {
             var header = TransactionHeaderRepo.GetTransactionHeader(id);
             if (header == null) {
                 return (null, null, "Transaction not found!");
             }
 
-            var detail = TransactionDetailRepo.GetTransactionDetail(id);
-            return detail == null ? (null, null, "Transaction detail not found!") : ((TransactionHeader, TransactionDetail, string))(header, detail, "");
+            var detail = TransactionDetailRepo.GetTransactionDetails(id);
+            return detail == null ? (null, null, "Transaction detail not found!") : ((TransactionHeader, List<TransactionDetail>, string))(header, detail, "");
         }
 
         public static string HandleTransaction(int id, string status) {

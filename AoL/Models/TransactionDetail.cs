@@ -14,6 +14,7 @@ namespace AoL.Models
     
     public partial class TransactionDetail
     {
+        public int id { get; set; }
         public int transactionId { get; set; }
         public int makeupId { get; set; }
         public int quantity { get; set; }

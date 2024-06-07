@@ -32,7 +32,7 @@ namespace AoL.Controllers {
             return error;
         }
 
-        public static (TransactionHeader, TransactionDetail, string) GetTransaction(int id) {
+        public static (TransactionHeader, List<TransactionDetail>, string) GetTransaction(int id) {
             return OrderHandler.GetTransaction(id);
         }
 

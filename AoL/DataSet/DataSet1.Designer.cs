@@ -329,6 +329,8 @@ namespace AoL.DataSet {
             
             private global::System.Data.DataColumn columnstatus;
             
+            private global::System.Data.DataColumn columngrand_total;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public transactionsDataTable() {
@@ -396,6 +398,14 @@ namespace AoL.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn grand_totalColumn {
+                get {
+                    return this.columngrand_total;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -431,13 +441,14 @@ namespace AoL.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public transactionsRow AddtransactionsRow(string transaction_id, string user_id, string transaction_date, string status) {
+            public transactionsRow AddtransactionsRow(string transaction_id, string user_id, string transaction_date, string status, string grand_total) {
                 transactionsRow rowtransactionsRow = ((transactionsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         transaction_id,
                         user_id,
                         transaction_date,
-                        status};
+                        status,
+                        grand_total};
                 rowtransactionsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtransactionsRow);
                 return rowtransactionsRow;
@@ -464,6 +475,7 @@ namespace AoL.DataSet {
                 this.columnuser_id = base.Columns["user_id"];
                 this.columntransaction_date = base.Columns["transaction_date"];
                 this.columnstatus = base.Columns["status"];
+                this.columngrand_total = base.Columns["grand_total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,6 +489,8 @@ namespace AoL.DataSet {
                 base.Columns.Add(this.columntransaction_date);
                 this.columnstatus = new global::System.Data.DataColumn("status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstatus);
+                this.columngrand_total = new global::System.Data.DataColumn("grand_total", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngrand_total);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -616,6 +630,10 @@ namespace AoL.DataSet {
             
             private global::System.Data.DataColumn columnquantity;
             
+            private global::System.Data.DataColumn columnitem_price;
+            
+            private global::System.Data.DataColumn columnsub_total;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public transactions_detailsDataTable() {
@@ -675,6 +693,22 @@ namespace AoL.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn item_priceColumn {
+                get {
+                    return this.columnitem_price;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn sub_totalColumn {
+                get {
+                    return this.columnsub_total;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -710,12 +744,14 @@ namespace AoL.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public transactions_detailsRow Addtransactions_detailsRow(transactionsRow parenttransactionsRowBytransactions_transactions_details, string makeup_id, string quantity) {
+            public transactions_detailsRow Addtransactions_detailsRow(transactionsRow parenttransactionsRowBytransactions_transactions_details, string makeup_id, string quantity, string item_price, string sub_total) {
                 transactions_detailsRow rowtransactions_detailsRow = ((transactions_detailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         makeup_id,
-                        quantity};
+                        quantity,
+                        item_price,
+                        sub_total};
                 if ((parenttransactionsRowBytransactions_transactions_details != null)) {
                     columnValuesArray[0] = parenttransactionsRowBytransactions_transactions_details[0];
                 }
@@ -744,6 +780,8 @@ namespace AoL.DataSet {
                 this.columntransaction_id = base.Columns["transaction_id"];
                 this.columnmakeup_id = base.Columns["makeup_id"];
                 this.columnquantity = base.Columns["quantity"];
+                this.columnitem_price = base.Columns["item_price"];
+                this.columnsub_total = base.Columns["sub_total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -755,6 +793,10 @@ namespace AoL.DataSet {
                 base.Columns.Add(this.columnmakeup_id);
                 this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnquantity);
+                this.columnitem_price = new global::System.Data.DataColumn("item_price", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitem_price);
+                this.columnsub_total = new global::System.Data.DataColumn("sub_total", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsub_total);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -961,6 +1003,22 @@ namespace AoL.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string grand_total {
+                get {
+                    try {
+                        return ((string)(this[this.tabletransactions.grand_totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'grand_total\' in table \'transactions\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletransactions.grand_totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Istransaction_idNull() {
                 return this.IsNull(this.tabletransactions.transaction_idColumn);
             }
@@ -1005,6 +1063,18 @@ namespace AoL.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetstatusNull() {
                 this[this.tabletransactions.statusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isgrand_totalNull() {
+                return this.IsNull(this.tabletransactions.grand_totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setgrand_totalNull() {
+                this[this.tabletransactions.grand_totalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1083,6 +1153,38 @@ namespace AoL.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string item_price {
+                get {
+                    try {
+                        return ((string)(this[this.tabletransactions_details.item_priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'item_price\' in table \'transactions_details\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletransactions_details.item_priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string sub_total {
+                get {
+                    try {
+                        return ((string)(this[this.tabletransactions_details.sub_totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'sub_total\' in table \'transactions_details\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletransactions_details.sub_totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public transactionsRow transactionsRow {
                 get {
                     return ((transactionsRow)(this.GetParentRow(this.Table.ParentRelations["transactions_transactions_details"])));
@@ -1126,6 +1228,30 @@ namespace AoL.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetquantityNull() {
                 this[this.tabletransactions_details.quantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isitem_priceNull() {
+                return this.IsNull(this.tabletransactions_details.item_priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setitem_priceNull() {
+                this[this.tabletransactions_details.item_priceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Issub_totalNull() {
+                return this.IsNull(this.tabletransactions_details.sub_totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setsub_totalNull() {
+                this[this.tabletransactions_details.sub_totalColumn] = global::System.Convert.DBNull;
             }
         }
         

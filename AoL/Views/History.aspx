@@ -70,18 +70,6 @@
                 <% } %>
                 <p>
                     <b>
-                        Item: 
-                    </b>
-                    <%= SelectedDetail.Makeup.name %>
-                </p>
-                <p>
-                    <b>
-                        Quantity: 
-                    </b>
-                    <%= SelectedDetail.quantity %>
-                </p>
-                <p>
-                    <b>
                         Date: 
                     </b>
                     <%= SelectedHeader.transactionDate %>
@@ -92,6 +80,32 @@
                     </b>
                     <%= SelectedHeader.status %>
                 </p>
+                <hr />
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem;">
+                    <% foreach (var d in SelectedDetail) { %>
+                    <div>
+                        <p>
+                            <b>
+                                Item: 
+                            </b>
+                            <%= d.Makeup.name %>
+                        </p>
+                        <p>
+                            <b>
+                                Quantity: 
+                            </b>
+                            <%= d.quantity %>
+                        </p>
+                        <p>
+                            <b>
+                                Price: 
+                            </b>
+                            <%= d.Makeup.price%>
+                        </p>
+                        <hr />
+                    </div>
+                    <% } %>
+                </div>
                 <br />
                 <a href="History.aspx">
                     <button type="button">

@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="84c0acc872294570bc45d8d355d93e9f" Name="Diagram1" ZoomLevel="127">
-        <EntityTypeShape EntityType="AoL_DBModel.User" Width="1.5" PointX="9.5" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AoL_DBModel.Cart" Width="1.5" PointX="9.5" PointY="6.5" />
-        <EntityTypeShape EntityType="AoL_DBModel.MakeupBrand" Width="1.5" PointX="1.125" PointY="5.625" />
-        <EntityTypeShape EntityType="AoL_DBModel.Makeup" Width="1.5" PointX="5.25" PointY="6.125" />
-        <EntityTypeShape EntityType="AoL_DBModel.MakeupType" Width="1.5" PointX="1" PointY="8.5" />
-        <EntityTypeShape EntityType="AoL_DBModel.TransactionDetail" Width="1.5" PointX="5.125" PointY="3.5" />
-        <EntityTypeShape EntityType="AoL_DBModel.TransactionHeader" Width="1.5" PointX="5.75" PointY="0.5" />
-        <AssociationConnector Association="AoL_DBModel.FK_Carts_Makeups" />
-        <AssociationConnector Association="AoL_DBModel.FK_Carts_Users" />
-        <AssociationConnector Association="AoL_DBModel.FK_MakeupBrand" />
-        <AssociationConnector Association="AoL_DBModel.FK_MakeupType" />
-        <AssociationConnector Association="AoL_DBModel.FK_TransactionDetails_Makeup" />
-        <AssociationConnector Association="AoL_DBModel.FK_TransactionDetails_Transaction" />
-        <AssociationConnector Association="AoL_DBModel.FK_TransactionHeaders_Users" />
+      <Diagram DiagramId="41d466c1545941cea55324e0c87ef6be" Name="Diagram1">
+        <EntityTypeShape EntityType="AoL_DBModel.Cart" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AoL_DBModel.MakeupBrand" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AoL_DBModel.Makeup" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="AoL_DBModel.MakeupType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AoL_DBModel.TransactionDetail" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AoL_DBModel.TransactionHeader" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AoL_DBModel.User" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="AoL_DBModel.FK_Carts_Makeups" ManuallyRouted="false" />
+        <AssociationConnector Association="AoL_DBModel.FK_Carts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="AoL_DBModel.FK_MakeupBrand" ManuallyRouted="false" />
+        <AssociationConnector Association="AoL_DBModel.FK_MakeupType" ManuallyRouted="false" />
+        <AssociationConnector Association="AoL_DBModel.FK_TransactionDetails_Makeup" ManuallyRouted="false" />
+        <AssociationConnector Association="AoL_DBModel.FK_TransactionDetails_Transaction" ManuallyRouted="false" />
+        <AssociationConnector Association="AoL_DBModel.FK_TransactionHeaders_Users" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

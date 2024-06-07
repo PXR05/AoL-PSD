@@ -79,6 +79,7 @@
             <div class="cart">
                 <% if (Carts.Count > 0) { %>
                     <% foreach (var item in Carts) { %>
+                        <% if (item != null) { %>
                         <div>
                             <span>
                                 <p>[ <%= item.Makeup.id %> ] <%= item.Makeup.name %></p>
@@ -88,6 +89,7 @@
                             <p><%= item.quantity %> x <%= item.Makeup.price.ToString("C") %></p>
                             <hr />
                         </div>
+                        <% } %>
                     <% } %>
                 <% } %>
             </div>
